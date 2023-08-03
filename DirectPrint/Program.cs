@@ -1,7 +1,15 @@
 ﻿using DirectPrint;
 
-string pdfFileName = "C:\\Users\\rifat\\source\\repos\\DirectPrint\\DirectPrint\\Pdfs\\file.pdf"; // Replace with the actual PDF file name
+string directory = Directory.GetCurrentDirectory();
+string filePath = Path.Combine(directory, "Pdfs");
+string fileFullPath = filePath + "\\invoice.pdf";
 
-Console.WriteLine(PrintPdf.Print(pdfFileName));
+if (!Directory.Exists(Path.Combine(directory, "Pdfs")))
+    Directory.CreateDirectory(Path.Combine(directory, "Pdfs"));
+Console.WriteLine(fileFullPath);
+
+ConvertToPdf.HtmlToPdf();
+
+Console.WriteLine(PrintPdf.Print(fileFullPath));
 
 Console.ReadLine();

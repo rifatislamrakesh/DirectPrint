@@ -11,13 +11,13 @@ namespace DirectPrint
                 PdfDocument doc = new();
                 doc.LoadFromFile(pdfFilePath);
                 doc.Print();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
             }
-
-            return true;
         }
     }
 }
